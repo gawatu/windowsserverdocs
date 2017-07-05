@@ -14,7 +14,7 @@ ms.assetid: 1f1215cd-404f-42f2-b55f-3888294d8a1f
 # ReFS integrity streams
 >Applies To: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10
 
-Integrity streams is an optional feature in ReFS that validates and maintains data integrity using checksums. While ReFS always uses checksums for metadata, ReFS doesn't, by default, generate or validate checksums for file data. Integrity streams is an optional feature that allows users to utilize checksums for file data. When integrity streams are enabled, ReFS can clearly determine if data is valid or corrupt. Additionally, ReFS and Storage Spaces can jointly correct corrupt metadata and data automatically.
+Integrity streams is an optional feature in ReFS that validates and maintains data integrity using checksums. While ReFS always uses checksums for metadata, ReFS doesn't, by default, generate or validate checksums for file data. Integrity streams is an optional feature that allows users to utilize checksums checksums for file data. When integrity streams are enabled, ReFS can clearly determine if data is valid or corrupt. Additionally, ReFS and Storage Spaces can jointly correct corrupt metadata and data automatically.
 
 ## How it works 
 
@@ -45,7 +45,7 @@ Because integrity streams carries a performance cost, we recommend leaving integ
 
 ## Integrity scrubber
 
-As described above, ReFS will automatically validate data integrity before accessing any data. ReFS also uses a background scrubber, which enables ReFS to validate infrequently accessed data. This scrubber periodically scans the volume, identifies latent corruptions, and proactively triggers a repair of any corrupt data.
+As described above, ReFS will automatically validate data integrity before accessing any data. Additionally, ReFS uses a background scrubber, which enables ReFS to validate infrequently accessed data. This scrubber periodically scans the volume, identifying latent corruptions and proactively triggering a repair of any corrupt data.
 
   >[!NOTE]
   >The data integrity scrubber can only validate file data for files where integrity streams is enabled.
