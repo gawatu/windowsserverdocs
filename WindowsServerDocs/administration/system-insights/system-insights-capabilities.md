@@ -57,7 +57,7 @@ Each capability analyzes daily data to forecast future usage. CPU, networking, a
 | --------------- | -------------- | ---------------- |
  Volume consumption forecasting          | Volume size                    | Maximum daily usage              
  Total storage consumption forecasting   | Sum of volume sizes, sum of disk sizes              | Maximum daily usage             
- CPU capacity forecasting                | % Processor Time/sec  | Maximum 2-hour average per day   
+ CPU capacity forecasting                | % Processor Time  | Maximum 2-hour average per day   
  Networking capacity forecasting         | Total bytes/sec         | Maximum 2-hour average per day  
 
 To help explain the processing logic, it’s important to note that each capability seeks to inform administrators when future usage will meaningfully exceed the available capacity – even though CPU momentarily hit 100% utilization, CPU usage may not have caused meaningful performance degradation or resource contention. For CPU and networking, then, there should be sustained high usage rather than momentary spikes. Averaging CPU and networking usage throughout the whole day, however, would lose important usage information, as a few hours of high CPU or networking usage could meaningfully impact the performance of your critical workloads. The maximum 2-hour average during each day is a compromise between each extreme, allowing each capability to forecast on high-fidelity but not overly sensitive data. 
@@ -74,6 +74,8 @@ Each System Insights capability must output a status associated with each predic
 
 >[!NOTE]
 >[If a capability forecasts across multiple instances - such as multiple volumes or network adapters - the status reflects the most severe status across all instances. Individual statuses for each volume or network adapter are visible within Windows Admin Center or the [JSON output of each capability](system-insights-management.md).] 
+
+
 
 ## See also
 
