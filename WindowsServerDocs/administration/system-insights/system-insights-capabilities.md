@@ -87,7 +87,7 @@ Each System Insights capability must output a status associated with each predic
 - **None**: There isn’t enough data to make a prediction. This could be due to a lack of data or because no data has been reported recently.
 
 >[!NOTE]
->[If a capability forecasts across multiple instances - such as multiple volumes or network adapters - the status reflects the most severe status across all instances. Individual statuses for each volume or network adapter are visible within Windows Admin Center or the data contained within the output of each capability.] 
+>[If a capability forecasts across multiple instances - such as multiple volumes or network adapters - the status reflects the most severe status across all instances. Individual statuses for each volume or network adapter are visible within Windows Admin Center or the data contained within the output of each capability. For instructions on how to parse the JSON output of the default capabilities, visit [this blog](https://aka.ms/systeminsightsmitigationscripts). 
 
 
 
