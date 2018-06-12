@@ -46,3 +46,5 @@ Determining which approach to use depends on the capability and the scenarios it
 ## Why did we make this
 
 ## Installing the feature
+
+Inplace upgrade

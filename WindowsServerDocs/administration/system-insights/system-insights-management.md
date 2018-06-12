@@ -31,7 +31,7 @@ This section describes the configuration options available to you within System 
 Though this section provides PowerShell examples, you can use the PowerShell documentation to see all of the cmdlets, parameters, and parameter sets within System Insights. 
 
 ### Enumerate capabilities
-To get started, you can list all of the capabilities available to you in System Insights using the **Get-InsightsCapability**: 
+To get started, you can list all of the capabilities available to you in System Insights using the **Get-InsightsCapability** cmdlet: 
 
 ```PowerShell
 Get-InsightsCapability
@@ -47,8 +47,7 @@ Enable-InsightsCapability -Name "CPU capacity forecasting"
 Disable-InsightsCapability -Name "Networking capacity forecasting"
 ``` 
 
-
-## Invoking a capability
+### Invoking a capability
 Invoking a capability immediately runs a capability to retrieve a prediction, and administrators can invoke a capability at any time. Running a capability can be an expensive operation, so it is recommended to schedule predictions during machine downtime. 
 
 ```PowerShell
@@ -58,8 +57,11 @@ Invoke-InsightsCapability -Name "CPU capacity forecasting"
 >[!NOTE]
 >[The performance impact of invoking the default capabilities is relatively modest compared to other machine learning models - they should take just a couple of seconds to run.]
 
+
 ### Retrieving prediction results
-Once a capability has been invoked, the most recent results are visible using the **Get-InsightsCapability** cmdlet. You can also use the **Get-InsightsCapabilityResult** capability to view the most recent result, and specifying the **History** parameter allows you to see the last 30 prediction results:
+Once a capability has been invoked, the most recent results are visible using the **Get-InsightsCapability** or the **Get-InsightsCapabilityResult** cmdlet. Each capability reports a **Status** and a **Status Description**, which are described further in the [System Insights capability page](system-insights-capability.md). 
+
+You can also use the **Get-InsightsCapabilityResult** capability to view the most recent result, and specifying the **History** parameter allows you to see the last 30 prediction results:
 
 ```PowerShell
 Get-InsightsCapabilityResult -Name "CPU capacity forecasting" -History
@@ -68,7 +70,7 @@ Additionally, each default capability outputs the data associated with the predi
 
 ```PowerShell
 $Output = Get-Content (Get-InsightsCapabilityResult -Name "CPU capacity forecasting").Output | ConvertFrom-Json
-$Output.PredictionResults
+$Output.ForecastingResults
 ```
 
 ### Setting a schedule
@@ -100,7 +102,7 @@ Set-InsightsCapabilitySchedule -Name "Volume consumption forecasting" -Minute -M
 >[Because the default capabilities analyze daily data, it's recommended to use daily schedules for these capabilities. [Learn more about the default capabilities.](system-insights-capabilities.md)]
 
 ### Setting remediation actions
-System Insights enables you to use custom remediation scripts to automatically react to and remediate any issue detected by each capability. Every capability outputs a prediction status, and you can configure a script for each prediction status. Once a capability returns a prediction status, System Insights automatically invokes the associated script to help address the issue reported by the capability, allowing administrators to take corrective action automatically, rather than requiring manual intervention. 
+System Insights enables you to configure custom remediation scripts to automatically react to and remediate any issue detected by each capability. For each capability, you can configure a custom PowerShell script for each prediction status. Once a capability returns a prediction status, System Insights automatically invokes the associated script to help address the issue reported by the capability, allowing administrators to take corrective action automatically, rather than requiring manual intervention. 
 
 The diagram below provides examples of sample remediation scripts for the total storage consumption forecasting capability, which helps you understand when your data will exceed your available disk space:
 
