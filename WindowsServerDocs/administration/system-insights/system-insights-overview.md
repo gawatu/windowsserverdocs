@@ -50,7 +50,7 @@ Add-WindowsFeature System-Insights -IncludeManagementTools
 ```
 You can also use the System Insights extension within Windows Admin Center. After installing the System Insights extension, you can click to enable System Insights:
 
-<img src="media/cpu-forecasting.png" alt="Day 0 experience for System Insights extension.">
+<img src="media/day-0-page.png" alt="Day 0 experience for System Insights extension.">
 
 #### Install the Windows Admin Center extension
 
