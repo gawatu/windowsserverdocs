@@ -76,7 +76,7 @@ The System Insights extension automatically shows the prediction history and par
 In addition to on-demand predictions, you can configure periodic predictions for each capability so that the specified capability is automatically invoked on a predefined schedule. Use the **Get-InsightsCapabilitySchedule** cmdlet to see capability schedules: 
 
 >[!TIP]
->[Use the pipe in PowerShell to see information for all capabilities returned by the **Get-InsightsCapability** cmdlet.]
+>[Use the pipeline operator in PowerShell to see information for all capabilities returned by the **Get-InsightsCapability** cmdlet.]
 
 ```PowerShell
 Get-InsightsCapability | Get-InsightsCapabilitySchedule

@@ -36,9 +36,10 @@ In Windows Server 2019, the default capabilities don't currently use Windows ML 
 
 ## Can I use System Insights for my cluster? 
 
-System Insights runs on each individual Windows Server instance, and the default capabilities forecast local storage, volume, CPU, and networking usage for each node in a cluster. 
+Yes. System Insights can independently run on each individual failover cluster node, and the capabilities forecast local storage, volume, CPU, and networking usage for each node in a cluster.  If desired, you can collect and surface these machine-scoped forecasts via simple PowerShell scripts for the entire cluster because you can use PowerShell to access the forecast results for each remote machine. 
 
-The default behavior of System Insights only forecasts for local volumes and disks, excluding cluster resources. In an upcoming release, however, System Insights will introduce functionality that allows you to start collecting data for CSVs, PDRs, and clustered disks. System Insights will continue to run on each server instance, so forecasts for cluster volumes will be duplicated across each Windows Server instance running System Insights. Stay tuned for this new functionality. 
+Note that by default, System Insights storage and volume capacity forecasting predictions are limited to non-clustered storage. This avoids having each cluster node redundantly forecast on clustered storage that is accessible from all nodes of the cluster. We, however, expect to add new functionality to System Insights in a future preview build that could optionally provide storage & volume capacity forecasting on clustered storage (e.g. CSV volumes), from each cluster node where this option is enabled.   
+
 
 ## How expensive is it to run the default capabilities?
 
