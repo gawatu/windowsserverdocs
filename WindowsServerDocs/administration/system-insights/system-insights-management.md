@@ -30,8 +30,7 @@ Get-InsightsCapability
 ``` 
 All of the available capabilities will also be visible in the home page of System Insights:
 
-<img src="media/overview-page.png" alt="Overview page of System Insights listing available capabilities">
-
+![Overview page of System Insights listing available capabilities](media/overview-page.png)
 
 ### Enabling and disabling a capability
 Each capability can be enabled or disabled. Disabling a capability prevents that capability from being invoked, and for non-default capabilities, disabling a capability stops all data collection for that capability. By default, all capabilities are enabled, and you can check the state of a capability using the **Get-InsightsCapability** cmdlet. 
@@ -69,8 +68,7 @@ $Output.PredictionResults
 ```
 The System Insights extension automatically shows the prediction history and parses the results of the JSON result, giving you an intuitive, high-fidelity graph of each forecast:
 
-<img src="media/cpu-forecasting.png" alt="Single capability page showing a forecasting graph and the prediction history">
-
+![Single capability page showing a forecasting graph and the prediction history](media/cpu-forecasting.png)
 
 ### Setting a capability schedule
 In addition to on-demand predictions, you can configure periodic predictions for each capability so that the specified capability is automatically invoked on a predefined schedule. Use the **Get-InsightsCapabilitySchedule** cmdlet to see capability schedules: 
@@ -102,15 +100,14 @@ Set-InsightsCapabilitySchedule -Name "Volume consumption forecasting" -Minute -M
 
 You can also use Windows Admin Center to view and set schedules for each capability by clicking **Settings**. The current schedule is shown on the **Schedule** tab, and you can use the GUI tools to create a new schedule:
 
-<img src="media/schedule-page.png" alt="Settings page showing current schedule">
-
+![Settings page showing current schedule](media/schedule-page.png)
 
 ### Create remediation actions
 System Insights enables you to configure custom remediation scripts to automatically react to and remediate the issues detected by each capability. For each capability, you can configure a custom PowerShell script for each prediction status. Once a capability returns a prediction status, System Insights automatically invokes the associated script to help address the issue reported by the capability, allowing administrators to take corrective action automatically, rather than requiring manual intervention. 
 
 The diagram below provides examples of sample remediation scripts for the total storage consumption forecasting capability, which helps you understand when your data will exceed your available disk space:
 
-<img src="media/remediation-actions.png" width=640; alt="Sample remediation actions for total storage consumption forecasting">
+![Sample remediation actions for total storage consumption forecasting](media/remediation-actions.png)
 
 You can see the actions for each capability using the **Get-InsightsCapabilityAction** cmdlet:
 
@@ -132,7 +129,9 @@ Remove-InsightsCapabilityAction -Name "CPU capacity forecasting" -Type Warning
 ```
 
 You can also use Windows Admin Center to set remediation actions by using **Actions** tab within the **Settings** page:
-<img src="media/actions-page.png" alt="Settings page where user can specify remediation actions">
+
+![Settings page where user can specify remediation actions](media/actions-page.png)
+
 
 ### Add a new capability
 In addition to the four default capabilities, System Insights also has an extensible platform that allows you to add new capabilities anytime using the **Add-InsightsCapability** cmdlet. 

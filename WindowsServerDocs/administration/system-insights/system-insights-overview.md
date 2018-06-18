@@ -22,8 +22,7 @@ System Insights is a new feature that introduces predictive analytics natively t
 
 You can manage System Insights through an intuitive [Windows Admin Center](https://docs.microsoft.com/windows-server/manage/windows-admin-center/overview) extension or [directly through PowerShell](https://aka.ms/SystemInsightsPowerShell), and System Insights allows you to configure each capability separately according to the needs of your deployment, helping you reduce the operational expenses associated with monitoring your Windows Server instances. In Windows Server 2019, System Insights introduces default capabilities focused on capacity forecasting, predicting future resource usage for compute, network, and storage.
 
-<img src="media/cpu-forecasting.png" alt="System Insights extension in Windows Admin Center, showing CPU capacity forecasting capability with a graph plotting the forecast.">
-
+![System Insights extension in Windows Admin Center, showing CPU capacity forecasting capability with a graph plotting the forecast](media/cpu-forecasting.png)
 
 ## Local functionality
 System Insights runs completely locally on Windows Server. Using new functionality introduced in Windows Server 2019, all of your data is collected, persisted, and analyzed directly on your machine, allowing you to realize predictive analytics capabilities without any cloud-connectivity.
